@@ -1,0 +1,10 @@
+#!/system/bin/sh
+# adb: wrapper to run adb from terminal
+# osm0sis @ xda-developers
+
+dir="$(cd "$(dirname "$0")"; pwd)";
+
+export HOME=/sdcard;
+export TMPDIR=/data/local/tmp;
+$dir/adb.bin "$@";
+
