@@ -1,22 +1,23 @@
 #!/data/data/com.termux/files/usr/bin/bash
 
 echo
-echo -e "\e[32mThis script will install ADB & FastBoot Tools in Termux."
+echo -e "\e[93mThis script will install ADB & FastBoot Tools in Termux."
 echo
-echo -e "\e[34m[*] Downloading wrapper script..."
-wget https://github.com/MasterDevX/Termux-ADB/raw/master/bin/adb -q
-echo -e "\e[34m[*] Downloading binaries..."
-wget https://github.com/MasterDevX/Termux-ADB/raw/master/bin/adb.bin -q
-wget https://github.com/MasterDevX/Termux-ADB/raw/master/bin/fastboot -q
-wget https://github.com/MasterDevX/Termux-ADB/raw/master/bin/fastboot-armeabi -q
-echo -e "\e[34m[*] Moving files to prefix..."
-mv adb $PREFIX/bin
-mv adb.bin $PREFIX/bin
-mv fastboot $PREFIX/bin
-mv fastboot-armeabi $/PREFIX/bin
-echo -e "\e[34m[*] Setting execution permissions..."
+echo -e "\e[32m[*] \e[34mDownloading wrapper script..."
+mkdir adbtemp
+wget https://github.com/MasterDevX/Termux-ADB/raw/master/bin/adb -P adbtemp/ -q
+echo -e "\e[32m[*] \e[34mDownloading binaries..."
+wget https://github.com/MasterDevX/Termux-ADB/raw/master/bin/adb.bin -P adbtemp/ -q
+wget https://github.com/MasterDevX/Termux-ADB/raw/master/bin/fastboot -P adbtemp/ -q
+wget https://github.com/MasterDevX/Termux-ADB/raw/master/bin/fastboot-armeabi -P adbtemp/ -q
+echo -e "\e[32m[*] \e[34mCopying files to prefix..."
+cp adbtemp/* $PREFIX/bin
+echo -e "\e[32m[*] \e[34mSetting execution permissions..."
 chmod +x $PREFIX/bin/adb*
 chmod +x $PREFIX/bin/fastboot*
+echo -e "\e[32m[*] \e[34mCleaning up..."
+rm -rf adbtemp
+rm -rf InstallTools.sh
 echo
 echo -e "\e[32mTools were successfully installed!\e[39m"
 echo
