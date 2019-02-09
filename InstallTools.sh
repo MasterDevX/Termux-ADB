@@ -4,11 +4,11 @@ echo
 echo -e "\e[32mThis script will install ADB & FastBoot Tools in Termux."
 echo
 echo -e "\e[34m[*] Downloading wrapper script..."
-wget https://github.com/MasterDevX/Termux-ADB/blob/master/bin/adb -q
+wget https://github.com/MasterDevX/Termux-ADB/raw/master/bin/adb -q
 echo -e "\e[34m[*] Downloading binaries..."
-wget https://github.com/MasterDevX/Termux-ADB/blob/master/bin/adb.bin -q
-wget https://github.com/MasterDevX/Termux-ADB/blob/master/bin/fastboot -q
-wget https://github.com/MasterDevX/Termux-ADB/blob/master/bin/fastboot-armeabi -q
+wget https://github.com/MasterDevX/Termux-ADB/raw/master/bin/adb.bin -q
+wget https://github.com/MasterDevX/Termux-ADB/raw/master/bin/fastboot -q
+wget https://github.com/MasterDevX/Termux-ADB/raw/master/bin/fastboot-armeabi -q
 echo -e "\e[34m[*] Moving files to prefix..."
 mv adb $PREFIX/bin
 mv adb.bin $PREFIX/bin
