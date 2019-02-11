@@ -4,19 +4,24 @@ echo
 echo -e "\e[93mThis script will install ADB & FastBoot Tools in Termux."
 echo
 echo -e "\e[32m[*] \e[34mDownloading wrapper script..."
-mkdir adbtemp
-wget https://github.com/MasterDevX/Termux-ADB/raw/master/bin/adb -P adbtemp/ -q
+mkdir $PREFIX/tmp/adbtemp
+downpath="$PREFIX/tmp/adbtemp"
+wget https://github.com/MasterDevX/Termux-ADB/raw/master/bin/adb -P $downpath/ -q
 echo -e "\e[32m[*] \e[34mDownloading binaries..."
-wget https://github.com/MasterDevX/Termux-ADB/raw/master/bin/adb.bin -P adbtemp/ -q
-wget https://github.com/MasterDevX/Termux-ADB/raw/master/bin/fastboot -P adbtemp/ -q
-wget https://github.com/MasterDevX/Termux-ADB/raw/master/bin/fastboot-armeabi -P adbtemp/ -q
-echo -e "\e[32m[*] \e[34mCopying files to prefix..."
-cp adbtemp/* $PREFIX/bin
+wget https://github.com/MasterDevX/Termux-ADB/raw/master/bin/adb.bin -P $downpath/ -q
+wget https://github.com/MasterDevX/Termux-ADB/raw/master/bin/fastboot -P $downpath/ -q
+wget https://github.com/MasterDevX/Termux-ADB/raw/master/bin/fastboot-armeabi -P $downpath/ -q
+echo -e "\e[32m[*] \e[34mCopying files to bin..."
+cp $downpath/* $PREFIX/bin
 echo -e "\e[32m[*] \e[34mSetting execution permissions..."
-chmod +x $PREFIX/bin/adb*
-chmod +x $PREFIX/bin/fastboot*
+files="$(ls $downpath)"
+cd $PREFIX/bin
+chmod +x $files
+cd $HOME
+echo -e "\e[32m[*] \e[34mCreating workspace directory..."
+mkdir adbfiles
 echo -e "\e[32m[*] \e[34mCleaning up..."
-rm -rf adbtemp
+rm -rf $downpath
 rm -rf InstallTools.sh
 echo
 echo -e "\e[32mTools were successfully installed!\e[39m"
