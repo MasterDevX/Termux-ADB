@@ -13,6 +13,7 @@ case `find $HOME/adbfiles -type f | wc -l` in
   rm -rf $HOME/adbfiles ;;
 *)
   rm -rf $HOME/adbfiles/adbkey $HOME/adbfiles/adbkey.pub ;;
+esac
 echo -e "\e[32m[*] \e[34mCleaning up..."
 rm -rf RemoveTools.sh
 echo
