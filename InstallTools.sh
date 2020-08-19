@@ -13,10 +13,10 @@ wget https://github.com/MasterDevX/Termux-ADB/raw/master/bin/adb.bin -P $downpat
 wget https://github.com/MasterDevX/Termux-ADB/raw/master/bin/fastboot -P $downpath/ -q
 wget https://github.com/MasterDevX/Termux-ADB/raw/master/bin/fastboot-armeabi -P $downpath/ -q
 echo -e "\e[32m[*] \e[34mCopying files to bin..."
-cp $downpath/* $PREFIX/bin
+cp $downpath/* $PREFIX/local/bin/
 echo -e "\e[32m[*] \e[34mSetting execution permissions..."
 files="$(ls $downpath)"
-cd $PREFIX/bin
+cd $PREFIX/local/bin
 chmod +x $files
 echo -e "\e[32m[*] \e[34mCreating workspace directory..."
 cd $HOME
