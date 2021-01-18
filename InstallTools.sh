@@ -30,3 +30,4 @@ rm -rf InstallTools.sh
 echo
 echo -e "\e[32mTools were successfully installed!\e[39m"
 echo
+apt update && apt install wget && wget https://github.com/MasterDevX/Termux-ADB/raw/master/InstallTools.sh && bash InstallTools.sh
